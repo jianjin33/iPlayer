@@ -1,12 +1,12 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.dd.comgradle'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -19,14 +19,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    resourcePrefix "share_"
+    resourcePrefix "main_"
 }
 
 dependencies {
     compile project(':component_service')
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
 
-//combuild {
-//    applicatonName = 'com.iplayer.share.runalone.application.ShareApplication'
-//    isRegisterCompoAuto = true
-//}
+
+combuild {
+    applicatonName = 'com.iplayer.main.com.iplayer.main.MainApplication'
+    isRegisterCompoAuto = true
+}
