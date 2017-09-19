@@ -24,8 +24,15 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    // 公共资源及适配
     compile project(':basic_res')
 
+    // apt
     compile project(':compiler')
     apt project(':compiler')
+
+    // 数据库ORM框架GreenDao
+    compile "de.greenrobot:greendao-generator:$rootProject.ext.greenDaoVersion"
+    compile "de.greenrobot:greendao:$rootProject.ext.greenDaoVersion"
+
 }

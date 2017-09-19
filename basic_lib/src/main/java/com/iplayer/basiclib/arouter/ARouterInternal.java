@@ -14,9 +14,10 @@ import java.util.Set;
 
 /**
  * Created by Administrator on 2017/7/25.
+ * Arouter真正实现，连接Rule
  */
 
-public class ARouterInternal {
+class ARouterInternal {
     private static ARouterInternal sInstance;
 
     /** scheme->路由规则 */

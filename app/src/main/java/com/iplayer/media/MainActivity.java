@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.iplayer.basiclib.arouter.ARouter;
 import com.iplayer.basiclib.arouter.rule.ActivityRule;
+import com.iplayer.basiclib.util.LogUtils;
 import com.iplayer.componentlib.router.Router;
 import com.iplayer.componentservice.main.MainService;
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public void start(View view){
         if (ARouter.resolveRouter(ActivityRule.ACTIVITY_SCHEME + "module_main.test")) {
             Intent intent = ARouter.invoke(this, ActivityRule.ACTIVITY_SCHEME + "module_main.test");
-            intent.putExtra("order","123456");
+            intent.putExtra("test","123456");
             startActivity(intent);
         }
     }
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     public void start2(View view){
         if (ARouter.resolveRouter(ActivityRule.ACTIVITY_SCHEME + "com.iplayer.main.ui.Test2Activity")) {
             Intent intent = ARouter.invoke(this, ActivityRule.ACTIVITY_SCHEME + "com.iplayer.main.ui.Test2Activity");
-            intent.putExtra("order","123456");
+            intent.putExtra("test","123456");
             startActivity(intent);
         }
     }
