@@ -35,7 +35,6 @@ android {
 
 dependencies {
     compile project(':component_service')
-//    compile project(':module_main')
 
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
