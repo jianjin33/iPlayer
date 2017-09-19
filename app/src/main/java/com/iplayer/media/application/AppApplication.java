@@ -2,7 +2,7 @@ package com.iplayer.media.application;
 
 import com.iplayer.annotation.router.Components;
 import com.iplayer.basiclib.base.BaseApplication;
-import com.iplayer.compiler.arouter.RouterHelper;
+import com.iplayer.compiler.arouter.ARouterHelper;
 import com.iplayer.componentlib.router.Router;
 
 /**
@@ -16,7 +16,7 @@ public class AppApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        RouterHelper.install();
+        ARouterHelper.install();
         Router.registerComponent("com.iplayer.main.applike.MainAppLike");
     }
 }

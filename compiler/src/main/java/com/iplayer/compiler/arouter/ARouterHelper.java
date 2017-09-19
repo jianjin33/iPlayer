@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
  * Created by Administrator on 2017/7/25.
  */
 
-public class RouterHelper {
+public class ARouterHelper {
 
     public static void install() {
         try {
