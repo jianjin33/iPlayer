@@ -26,13 +26,20 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // 公共资源及适配
     compile project(':basic_res')
-
     // apt
     compile project(':compiler')
     apt project(':compiler')
-
     // 数据库ORM框架GreenDao
     compile "de.greenrobot:greendao-generator:$rootProject.ext.greenDaoVersion"
     compile "de.greenrobot:greendao:$rootProject.ext.greenDaoVersion"
+    // Gson解析
+    compile "com.google.code.gson:gson:$rootProject.gsonVersion"
+    // 事件总线
+    compile "org.greenrobot:eventbus:$rootProject.eventbusVersion"
+    // retrofit
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+
 
 }

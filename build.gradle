@@ -35,18 +35,13 @@ ext {
     versionName = "1.0.0"
     javaVersion = JavaVersion.VERSION_1_8
 
-
-
     // App dependencies version
-    loggerVersion = "1.15"
     gsonVersion = "2.7"
     eventbusVersion = "3.0.0"
 
-    supportLibraryVersion = "25.3.1"
-    glideVersion = "3.7.0"
-    photoViewVersion = "2.0.0"
-
     //需检查升级版本
+    supportLibraryVersion = "25.3.1"
+    retrofitVersion = "2.0.1"
     annotationProcessor = "1.1.7"
     greenDaoVersion = "2.1.0"
 }
