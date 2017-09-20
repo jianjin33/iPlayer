@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -28,7 +27,7 @@ dependencies {
     compile project(':basic_res')
     // apt
     compile project(':compiler')
-    apt project(':compiler')
+    annotationProcessor project(':compiler')
     // 数据库ORM框架GreenDao
     compile "de.greenrobot:greendao-generator:$rootProject.ext.greenDaoVersion"
     compile "de.greenrobot:greendao:$rootProject.ext.greenDaoVersion"
@@ -40,6 +39,5 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
-
 
 }

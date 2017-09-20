@@ -11,19 +11,10 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$localGradlePluginVersion"
         classpath 'com.mrzhang.andcomponent:build-gradle:0.0.2'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
     }
 }
 
-allprojects {
-    repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }
-        maven {
-            url uri('./repo')
-        }
-    }
-}
 
 ext {
     // localBuildToolsVersion是gradle.properties中的数据
@@ -44,9 +35,19 @@ ext {
     retrofitVersion = "2.0.1"
     annotationProcessor = "1.1.7"
     greenDaoVersion = "2.1.0"
+    butterKnifeVersion = "8.8.1"
 }
 
 
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven {
+            url uri('./repo')
+        }
+    }
+}
 
 task clean(type: Delete) {
     delete rootProject.buildDir
