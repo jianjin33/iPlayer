@@ -27,15 +27,15 @@ ext {
     javaVersion = JavaVersion.VERSION_1_8
 
     // App dependencies version
-    gsonVersion = "2.7"
     eventbusVersion = "3.0.0"
 
     //需检查升级版本
-    supportLibraryVersion = "25.3.1"
+    supportLibraryVersion = "26.0.0-alpha1"
     retrofitVersion = "2.0.1"
     annotationProcessor = "1.1.7"
     greenDaoVersion = "2.1.0"
     butterKnifeVersion = "8.8.1"
+    bannerVersion = "1.4.9"
 }
 
 

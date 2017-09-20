@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.iplayer.basiclib.view.StickyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.iplayer.main.ui.TestActivity"
-    tools:ignore="ResourceName">
+    tools:ignore="ResourceName"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
+    android:background="@android:color/holo_blue_bright">
 
-    <TextView
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="首页111"/>
+        android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/main_textview"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:text="首页111"
+            android:background="@color/common_colorAccent"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="8dp"
+            android:text="首页111"
+            android:background="@color/common_colorAccent"
+            app:layout_constraintTop_toBottomOf="@+id/main_textview"
+            tools:layout_editor_absoluteX="0dp"
+            tools:ignore="MissingConstraints" />
+
+    </android.support.constraint.ConstraintLayout>
+</com.iplayer.basiclib.view.StickyScrollView>
+
