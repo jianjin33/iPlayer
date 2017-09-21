@@ -13,6 +13,7 @@ import android.webkit.MimeTypeMap;
 import com.iplayer.basiclib.arouter.ARouter;
 import com.iplayer.basiclib.arouter.rule.ActivityRule;
 import com.iplayer.basiclib.util.LogUtils;
+import com.iplayer.basiclib.view.ExplosionField;
 import com.iplayer.componentlib.router.Router;
 import com.iplayer.componentservice.main.MainService;
 
@@ -25,6 +26,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final ExplosionField explosionField = ExplosionField.attach2Window(this);
+        findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                explosionField.explode(view);
+            }
+        });
+
+        findViewById(R.id.imageView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                explosionField.explode(view);
+            }
+        });
         showFragment();
     }
     private void showFragment() {
@@ -61,7 +77,9 @@ public class MainActivity extends AppCompatActivity {
     public void start3(View view){
 //        playNetVideo("rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov");
 //        playNetVideo("http://forum.ea3w.com/coll_ea3w/attach/2008_10/12237832415.3gp");
-        playNetVideo("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+//        playNetVideo("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+        playNetVideo("http://olq04epn4.bkt.clouddn.com/RxAndroid%E5%BC%80%E5%8F%91%E8%AE%B2%E8%A7%A3%E7%AC%AC%E4%BA%8C%E9%9B%86.mp4");
+//        playNetVideo("http://mov.bn.netease.com/open-movie/nos/flv/2016/03/10/SBGSB5P41_sd.flv");
     }
 
     private void playVideo(String videoPath){

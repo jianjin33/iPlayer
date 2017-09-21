@@ -2,8 +2,8 @@
 apply plugin: 'com.dd.comgradle'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion 26
+    buildToolsVersion '26.0.0'
 
     defaultConfig {
         applicationId "com.iplayer.media"
@@ -35,7 +35,6 @@ android {
 
 dependencies {
     compile project(':component_service')
-
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
 
