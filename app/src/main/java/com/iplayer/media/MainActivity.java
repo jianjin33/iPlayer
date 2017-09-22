@@ -67,11 +67,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void start2(View view){
-        if (ARouter.resolveRouter(ActivityRule.ACTIVITY_SCHEME + "com.iplayer.main.ui.Test2Activity")) {
-            Intent intent = ARouter.invoke(this, ActivityRule.ACTIVITY_SCHEME + "com.iplayer.main.ui.Test2Activity");
-            intent.putExtra("test","123456");
-            startActivity(intent);
-        }
+        startActivity(new Intent(this,Main2Activity.class));
+//        if (ARouter.resolveRouter(ActivityRule.ACTIVITY_SCHEME + "com.iplayer.main.ui.Test2Activity")) {
+//            Intent intent = ARouter.invoke(this, ActivityRule.ACTIVITY_SCHEME + "com.iplayer.main.ui.Test2Activity");
+//            intent.putExtra("test","123456");
+//            startActivity(intent);
+//        }
     }
 
     public void start3(View view){

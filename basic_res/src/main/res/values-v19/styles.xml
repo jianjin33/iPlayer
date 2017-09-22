@@ -4,10 +4,10 @@
     <style name="CommonAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/common_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/common_colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/common_title_bg</item>
         <item name="colorAccent">@color/common_colorAccent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <!--状态栏为透明,如果设置为false，则没有黑色条盖住，见下图对比-->
+        <item name="android:windowTranslucentStatus">false</item>
+        <!--状态栏为透明,如果设置为false，则没有黑色条盖住-->
         <item name="android:windowTranslucentNavigation">false</item> <!--导航栏为透明-->
     </style>
 </resources>
