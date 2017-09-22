@@ -36,6 +36,7 @@ ext {
     greenDaoVersion = "2.1.0"
     butterKnifeVersion = "8.8.1"
     bannerVersion = "1.4.9"
+    rxlifecycleVersion = "0.6.1"
 }
 
 

@@ -43,4 +43,8 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
     // banner框架
     compile "com.youth.banner:banner:$rootProject.bannerVersion"
+    // rxlifecycle管理RxJava访问网络回调
+    compile "com.trello:rxlifecycle:$rootProject.rxlifecycleVersion"
+    compile "com.trello:rxlifecycle-components:$rootProject.rxlifecycleVersion"
+
 }
