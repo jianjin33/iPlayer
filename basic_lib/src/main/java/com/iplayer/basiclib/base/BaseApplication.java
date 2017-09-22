@@ -4,10 +4,9 @@ import android.app.Application;
 
 import com.iplayer.basiclib.util.Utils;
 
-import java.util.Stack;
-
 /**
  * Created by Administrator on 2017/9/19.
+ * Application 基类
  */
 
 public class BaseApplication extends Application {
