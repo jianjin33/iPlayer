@@ -16,8 +16,6 @@ import java.util.Stack;
 
 public class BaseApplication extends Application {
 
-    private Stack<Activity> activityStack;
-
     @Override
     public void onCreate() {
         super.onCreate();

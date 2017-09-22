@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/9/22.
+ * 流失布局
  */
 
 public class WrapLayout extends ViewGroup {

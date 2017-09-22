@@ -6,6 +6,9 @@ package com.iplayer.basiclib.core;
  */
 
 public interface Constants {
+
+    String BASE_URL="";
+
     /**
      * sharedPreference在SD卡中命名
      */
