@@ -1,0 +1,39 @@
+apply plugin: 'com.dd.comgradle'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+//    resourcePrefix "mine_"
+}
+
+dependencies {
+    compile project(':component_service')
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
+
+}
+
+
+combuild {
+    applicatonName = 'com.iplayer.mine.com.iplayer.mine.MineApplication'
+    isRegisterCompoAuto = true
+}

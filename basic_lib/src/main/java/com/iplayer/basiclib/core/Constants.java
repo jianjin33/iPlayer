@@ -7,7 +7,7 @@ package com.iplayer.basiclib.core;
 
 public interface Constants {
 
-    String BASE_URL="";
+    String BASE_URL = "http://1852sh7933.51mypc.cn/";
 
     /**
      * sharedPreference在SD卡中命名

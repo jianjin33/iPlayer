@@ -23,7 +23,6 @@ public class HttpResultFunc<T> implements Func1<Response, T> {
             case "1111":
                 Message msg = Message.obtain();
                 msg.obj = httpResult.getMessage();
-                // JPushInterface.setAliasAndTags(MyApplication.context, "", null);  //推送别名设置为空
                 break;
             default:
 

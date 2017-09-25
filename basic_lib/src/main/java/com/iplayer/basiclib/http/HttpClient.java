@@ -2,11 +2,13 @@ package com.iplayer.basiclib.http;
 
 
 import android.support.annotation.Nullable;
+import android.support.v4.text.TextUtilsCompat;
 import android.text.TextUtils;
 
 import com.iplayer.basiclib.core.Constants;
 import com.iplayer.basiclib.util.LogUtils;
 import com.iplayer.basiclib.util.NetworkUtils;
+import com.iplayer.basiclib.util.StringUtils;
 import com.iplayer.basiclib.util.Utils;
 
 import java.io.File;
@@ -48,8 +50,8 @@ public class HttpClient<T> {
 
     public HttpClient(@Nullable String baseUrl, Class<T> clazz) {
         //retrofit的builder配置
-        if (!BASE_URL.equals(baseUrl) || client == null) {
-            if (baseUrl != null)
+        if (client == null || (!StringUtils.isSpace(baseUrl) && !BASE_URL.equals(baseUrl))) {
+            if (!StringUtils.isSpace(baseUrl))
                 BASE_URL = baseUrl;
 
             String STORE_PASS = "cai1037399948";
