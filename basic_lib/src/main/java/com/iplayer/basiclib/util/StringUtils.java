@@ -60,7 +60,7 @@ public class StringUtils {
      * @return {@code true}: 相等<br>{@code false}: 不相等
      */
     public static boolean equals(CharSequence a, CharSequence b) {
-        if (a == b) return true;
+//        if (a == b) return true;
         int length;
         if (a != null && b != null && (length = a.length()) == b.length()) {
             if (a instanceof String && b instanceof String) {
@@ -71,6 +71,20 @@ public class StringUtils {
                 }
                 return true;
             }
+        }
+        return false;
+    }
+
+    /**
+     * 判断两字符串是否相等
+     *
+     * @param a 待校验字符串a
+     * @param b 待校验字符串b
+     * @return {@code true}: 相等<br>{@code false}: 不相等
+     */
+    public static boolean equals(String a, String b) {
+        if (a != null && b != null) {
+            return a.equals(b);
         }
         return false;
     }

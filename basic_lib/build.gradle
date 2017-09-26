@@ -46,5 +46,6 @@ dependencies {
     // rxLifecycle管理RxJava访问网络回调
     compile "com.trello:rxlifecycle:$rootProject.rxlifecycleVersion"
     compile "com.trello:rxlifecycle-components:$rootProject.rxlifecycleVersion"
-
+    // 图片加载
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

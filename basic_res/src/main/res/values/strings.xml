@@ -1,5 +1,8 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
     <string name="app_name">basic_res</string>
     <string name="common_login">登录</string>
     <string name="common_register">注册</string>
+    <string name="password">密码</string>
+    <string name="account">用户名</string>
+    <string name="forget_pwd">找回密码</string>
 </resources>

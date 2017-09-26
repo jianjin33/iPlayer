@@ -1,3 +1,4 @@
 <resources>
     <string name="mine_app_name">module_mine</string>
+    <string name="please_input_account_and_pwd">请输入用户名和密码</string>
 </resources>

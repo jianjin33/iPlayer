@@ -5,7 +5,27 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/common_colorAccent</item>
+    </style>
+
+    <!--EditText的主題 Start-->
+    <style name="TextInputLayoutLineColor" parent="Theme.AppCompat.Light">
+        <!--没有获取焦点时的颜色-->
+        <item name="colorControlNormal">@color/common_gray</item>
+        <!--获取焦点时的颜色-->
+        <item name="colorControlActivated">@android:color/white</item>
+    </style>
+
+    <!--浮动标签-->
+    <style name="hintAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:textColor">@color/common_gray</item>
+    </style>
+
+    <!--错误提示信息-->
+    <style name="errorAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:textColor">@color/common_colorAccent</item>
     </style>
 
 </resources>

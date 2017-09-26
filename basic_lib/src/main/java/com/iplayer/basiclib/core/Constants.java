@@ -14,4 +14,8 @@ public interface Constants {
      */
     String SP_NAME = "config";
 
+    /**
+     * 请求数据成功
+     */
+    String REQUEST_SUCCESS = "0000";
 }
