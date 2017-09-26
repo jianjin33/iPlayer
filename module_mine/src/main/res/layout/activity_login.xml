@@ -5,9 +5,7 @@
     android:id="@+id/mine_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/mine_login_bg"
     tools:ignore="MissingConstraints">
-
 
     <!-- TextInputLayout: app:hintEnabled="true"//设置是否可以使用hint属性，默认是true
     app:hintAnimationEnabled="true"//设置是否可以使用动画，默认是true
@@ -107,7 +105,7 @@
             android:layout_width="@dimen/dp_45"
             android:layout_height="@dimen/dp_45"
             android:layout_gravity="center"
-            android:indeterminateTint="@color/common_gray"
+            android:indeterminateTint="@color/common_colorAccent"
             android:indeterminateTintMode="src_atop"
             android:visibility="gone" />
     </FrameLayout>

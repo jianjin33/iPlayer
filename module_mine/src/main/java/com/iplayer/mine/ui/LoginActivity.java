@@ -1,8 +1,12 @@
 package com.iplayer.mine.ui;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputEditText;
 import android.view.View;
@@ -12,12 +16,16 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.iplayer.basiclib.base.BaseActivity;
+import com.iplayer.basiclib.util.BitmapDecodeUtils;
 import com.iplayer.basiclib.util.StringUtils;
+import com.iplayer.basiclib.util.UIUtils;
 import com.iplayer.basiclib.view.CircularAnim;
 import com.iplayer.mine.R;
 import com.iplayer.mine.R2;
 import com.iplayer.mine.presenter.ILogin;
 import com.iplayer.mine.presenter.impl.LoginPresenter;
+
+import java.io.ByteArrayOutputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +45,7 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
     ProgressBar mProgressBar;
     private ILogin.ILoginPresenter presenter;
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,14 +54,15 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
         presenter = new LoginPresenter(this, this);
         //当系统版本为4.4或者4.4以上时可以使用沉浸式状态栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            //透明状态栏
+            // 透明状态栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            //透明导航栏
-//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            // 透明导航栏
+            // getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
 
-//        Bitmap bg = BitmapFactory.decodeResource(getResources(),R.mipmap.mine_login_bg);
-//        bg.setConfig(Con);
+        Bitmap bitmap = BitmapDecodeUtils.decodeBitmapFromResource(getResources(),R.mipmap.mine_login_bg,
+                UIUtils.getScreenWidth(),UIUtils.getScreenHeight());
+        mineLogin.setBackground(new BitmapDrawable(bitmap));
     }
 
     @OnClick({R.id.mine_bt_login, R.id.mine_bt_forget_pwd, R.id.mine_bt_register})
@@ -82,7 +92,6 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
             case R.id.mine_bt_forget_pwd:
                 break;
             case R.id.mine_bt_register:
-
                 break;
         }
     }
@@ -104,6 +113,6 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
 
     @Override
     public void finishAct() {
-        this.finish();
+        activityManagerUtils.finishActivity(this);
     }
 }
