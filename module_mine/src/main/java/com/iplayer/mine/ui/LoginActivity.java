@@ -99,6 +99,7 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
     @Override
     public void showLoginBtn() {
         CircularAnim.show(mineBtLogin).go();
+        mProgressBar.setVisibility(View.GONE);
     }
 
     @Override

@@ -6,6 +6,9 @@ import com.iplayer.basiclib.http.HttpResultFunc;
 import com.iplayer.basiclib.util.LogUtils;
 import com.trello.rxlifecycle.ActivityEvent;
 import com.trello.rxlifecycle.ActivityLifecycleProvider;
+import com.trello.rxlifecycle.FragmentEvent;
+import com.trello.rxlifecycle.FragmentLifecycleProvider;
+import com.trello.rxlifecycle.LifecycleTransformer;
 
 import rx.Observable;
 import rx.Observer;
@@ -38,7 +41,7 @@ public class HttpMethod {
     /**
      * 用户登录
      */
-    public void login(Subscriber subscriber, ActivityLifecycleProvider provider, String account, String pwd) {
+    public <P> void login(Subscriber subscriber, P provider, String account, String pwd) {
         Observable observable = service.login(account, pwd)
                 .map(new HttpResultFunc());
 
@@ -48,23 +51,30 @@ public class HttpMethod {
     /**
      * 用户注册
      */
-    public void register(Subscriber subscriber, ActivityLifecycleProvider provider, String account, String pwd) {
+    public <P> void register(Subscriber subscriber, P provider, String account, String pwd) {
         Observable observable = service.register(account, pwd)
                 .map(new HttpResultFunc());
 
-        toSubscribe(provider,observable, subscriber);
+        toSubscribe(provider, observable, subscriber);
     }
 
     /**
      * observeOn()方法将会在指定的调度器上返回结果：如在UI线程。
      */
-    private <T> void toSubscribe(ActivityLifecycleProvider provider, Observable<T> o, Subscriber s) {
+    private <T, P> void toSubscribe(P provider, Observable<T> o, Subscriber s) {
+        LifecycleTransformer transformer;
+        if (provider instanceof ActivityLifecycleProvider) {
+            transformer = ((ActivityLifecycleProvider) provider).bindUntilEvent(ActivityEvent.DESTROY);
+        } else {
+            transformer = ((FragmentLifecycleProvider) provider).bindUntilEvent(FragmentEvent.DESTROY);
+        }
+
         o.onBackpressureBuffer()
                 .subscribeOn(Schedulers.io())
                 .subscribeOn(Schedulers.computation())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .compose(provider.bindUntilEvent(ActivityEvent.DESTROY))
+                .compose(transformer)
                 .subscribe(s);
     }
 }
