@@ -28,5 +28,4 @@ public abstract class BasePresenter {
         return provider;
     }
 
-    public abstract Throwable doError(Throwable var1);
 }

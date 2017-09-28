@@ -31,6 +31,7 @@ public class HttpResultFunc<T> implements Func1<Response, T> {
         if (!httpResult.getCode().equals("0000")) {
 
         }
+        // 应该返回的是httpResult中的getT()的数据类型，由于不知道具体的T是什么。这里这样返回也不出错，有待研究
         return (T) httpResult;
     }
 }

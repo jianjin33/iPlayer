@@ -18,7 +18,7 @@ public class LoginModel extends BaseModel implements ILogin.IModel {
     }
 
     public void login(HttpSubscriber subscriber, String account, String pwd) {
-        HttpMethod.getInstance().login(subscriber, account, pwd);
+        HttpMethod.getInstance().login(subscriber,getActivityLifecycleProvider(), account, pwd);
     }
 
 }

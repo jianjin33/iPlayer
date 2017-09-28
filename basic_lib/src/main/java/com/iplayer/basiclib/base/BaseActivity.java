@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.iplayer.basiclib.util.ActivityManagerUtils;
 import com.iplayer.basiclib.util.LogUtils;
 import com.trello.rxlifecycle.ActivityEvent;
+import com.trello.rxlifecycle.ActivityLifecycleProvider;
 import com.trello.rxlifecycle.LifecycleTransformer;
 import com.trello.rxlifecycle.RxLifecycle;
 
@@ -23,7 +24,7 @@ import rx.subjects.BehaviorSubject;
  * Activity基类
  */
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity  implements ActivityLifecycleProvider {
     private final BehaviorSubject<ActivityEvent> lifecycleSubject = BehaviorSubject.create();
     public ActivityManagerUtils activityManagerUtils;
 
@@ -99,6 +100,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void onDestroy() {
+        this.lifecycleSubject.onNext(ActivityEvent.DESTROY);
         super.onDestroy();
         this.activityManagerUtils.finishActivity(this);
     }

@@ -17,6 +17,8 @@ import java.io.InputStream;
 import java.security.KeyStore;
 import java.security.SecureRandom;
 import java.security.cert.CertificateFactory;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.SSLContext;
@@ -29,9 +31,11 @@ import okhttp3.Connection;
 import okhttp3.FormBody;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -46,38 +50,46 @@ public class HttpClient<T> {
     private static final int DEFAULT_TIMEOUT = 30;  // 默认30s后超时连接
     private int maxAge;
     private T client;
+    private Retrofit retrofit;
 
-
+    /**
+     * 如果baseUrl总是和BASE_URL不同，则会创建多个client对象，需要优化
+     * 可以使用官方的静态和动态设置BASE_URL方法设置
+     * 目前使用各个模块中HttpMethod必须保持单例，HttpClient对象使用静态。这样的HttpClient对象数等于项目模块数
+     * 后期再做优化
+     */
     public HttpClient(@Nullable String baseUrl, Class<T> clazz) {
         //retrofit的builder配置
-        if (client == null || (!StringUtils.isSpace(baseUrl) && !BASE_URL.equals(baseUrl))) {
-            if (!StringUtils.isSpace(baseUrl))
-                BASE_URL = baseUrl;
-
-            String STORE_PASS = "cai1037399948";
-            String STORE_ALIAS = "0";
+        String STORE_PASS = "cai1037399948";
+        String STORE_ALIAS = "0";
 //          HttpsHelper.SSLParams sslParams = HttpsHelper.getSslSocketFactory(MyApplication.context, R.raw.ssl, STORE_PASS, STORE_ALIAS);
 
-            // 创建一个OkHttpClient并设置超时时间
-            OkHttpClient.Builder builder = new OkHttpClient.Builder()
-                    .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
-                    .addInterceptor(getInterceptor())
-                    .cache(cache);
+        // 创建一个OkHttpClient并设置超时时间
+        OkHttpClient.Builder builder = new OkHttpClient.Builder()
+                .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+                .addInterceptor(getInterceptor())
+                .cache(cache);
+
 //                .sslSocketFactory(HttpsHelper.getSslSocketFactoryUnsafe().sSLSocketFactory
 //                ,HttpsHelper.getSslSocketFactoryUnsafe().trustManager);
 //                .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager);
 //                .hostnameVerifier(HttpsHelper.getHostnameVerifier());
 
-            Retrofit retrofit = new Retrofit.Builder()
+        if (retrofit == null || !StringUtils.isSpace(baseUrl) && !BASE_URL.equals(baseUrl)) {
+            if (!StringUtils.isSpace(baseUrl))
+                BASE_URL = baseUrl;
+
+            //创建Gson对象
+            retrofit = new Retrofit.Builder()
                     .client(builder.build())
                     .addConverterFactory(GsonConverterFactory.create())//创建Gson对象
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .baseUrl(BASE_URL)
                     .build();
-
-            //动态代理
-            client = retrofit.create(clazz);
         }
+        //动态代理
+        client = retrofit.create(clazz);
+
     }
 
     public T getService() {
@@ -110,6 +122,10 @@ public class HttpClient<T> {
                             .cacheControl(new CacheControl.Builder().maxStale(request.cacheControl().maxAgeSeconds(), TimeUnit.SECONDS).build())
                             .build();
                 }
+
+                request = request.newBuilder()
+                        .header("iplayer", "iplayer")
+                        .build();
 
                 // 添加公共参数
                 if (request.method().equals("GET")) {

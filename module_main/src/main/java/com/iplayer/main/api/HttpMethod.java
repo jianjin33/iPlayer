@@ -27,7 +27,7 @@ public class HttpMethod {
     }
 
 
-    private HttpService service = new HttpClient<>(BASE_URL,HttpService.class).getService();
+    private static HttpService service = new HttpClient<>(BASE_URL,HttpService.class).getService();
 
 
     /**
