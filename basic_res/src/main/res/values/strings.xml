@@ -5,4 +5,8 @@
     <string name="password">密码</string>
     <string name="account">用户名</string>
     <string name="forget_pwd">找回密码</string>
+    <string name="common_home">首页</string>
+    <string name="common_find">发现</string>
+    <string name="common_my">个人中心</string>
+    <string name="common_social">社交</string>
 </resources>

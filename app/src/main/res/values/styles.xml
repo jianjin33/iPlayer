@@ -8,4 +8,13 @@
         <item name="colorAccent">@color/common_colorAccent</item>
     </style>
 
+    <!--启动App背景图-->
+    <style name="Welcome" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@mipmap/launcher_bg</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
 </resources>

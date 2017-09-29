@@ -48,4 +48,6 @@ dependencies {
     compile "com.trello:rxlifecycle-components:$rootProject.rxlifecycleVersion"
     // 图片加载
     compile 'com.squareup.picasso:picasso:2.5.2'
+    // 底部导航栏 有时间自己再写
+    compile 'com.chen.wakehao.library:bottom-navigation-bar:1.0.0'
 }

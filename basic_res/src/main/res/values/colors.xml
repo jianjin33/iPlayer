@@ -5,4 +5,5 @@
     <color name="common_colorAccent">#F73668</color>
     <color name="common_title_bg">#181818</color>
     <color name="common_gray" >#DDDDDD</color>
+    <color name="common_blue_light" >#2196F3</color>
 </resources>

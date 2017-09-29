@@ -29,7 +29,7 @@ public class BaseActivity extends AppCompatActivity  implements ActivityLifecycl
     public ActivityManagerUtils activityManagerUtils;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //当系统版本为4.4或者4.4以上时可以使用沉浸式状态栏

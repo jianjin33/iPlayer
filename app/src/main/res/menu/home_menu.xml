@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="MissingPrefix">
+    <item
+        android:icon="@drawable/main_ic_home_select"
+        icon2="@drawable/main_ic_home"
+        shiftedColor="#258555"
+        android:title="@string/common_home"></item>
+    <item
+        android:icon="@drawable/main_ic_find_select"
+        icon2="@drawable/main_ic_find"
+        shiftedColor="@color/common_colorPrimary"
+        android:title="@string/common_find"></item>
+    <item
+        android:icon="@drawable/main_ic_social_select"
+        icon2="@drawable/main_ic_social"
+        shiftedColor="@color/common_colorAccent"
+        android:title="@string/common_social"></item>
+    <item
+        android:icon="@drawable/main_ic_my_select"
+        icon2="@drawable/main_ic_my"
+        shiftedColor="@color/common_blue_light"
+        android:title="@string/common_my"></item>
+</menu>
