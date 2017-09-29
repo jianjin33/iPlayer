@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.iplayer.basiclib.base.BaseFragment;
 import com.iplayer.main.R;
 import com.iplayer.main.R2;
 
@@ -20,7 +21,7 @@ import butterknife.ButterKnife;
  * 首页
  */
 
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseFragment {
 
     @BindView(R2.id.main_rv_content)
     RecyclerView mainRvContent;
