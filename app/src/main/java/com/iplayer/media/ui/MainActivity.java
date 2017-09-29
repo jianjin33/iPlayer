@@ -28,10 +28,8 @@ public class MainActivity extends BaseActivity {
 
         bar = (BottomNavigationBar) findViewById(R.id.bar);
         //可动态改变item的标题
-//        bar.setTitle(0,"home(99)");
-        bar.showNum(0,80);
-        bar.showNum(1,100);
-        bar.showNum(2,-2);
+        bar.showNum(2,100);
+        bar.showNum(3,-2);
         bar.disMissNum(3);
 
         bar.setOnNavigationItemSelectedListener(new BottomNavigationBar.OnNavigationItemSelectedListener() {
@@ -43,7 +41,7 @@ public class MainActivity extends BaseActivity {
                     //用户切换item
                     bar.setItemSelected(3,true);
                     //返回false表示不响应点击事件
-                    return false;
+                    return true;
                 }
                 else return true;
             }
