@@ -53,7 +53,6 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-
         showFragment();
     }
     private void showFragment() {
