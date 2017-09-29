@@ -33,7 +33,7 @@
                     <ImageView
                         android:layout_width="@dimen/dp_25"
                         android:layout_height="@dimen/dp_25"
-                        android:background="@mipmap/ic_launcher"
+                        android:background="@mipmap/ic_iplayer"
                         android:layout_marginLeft="@dimen/dp_20"/>
 
                     <TextView

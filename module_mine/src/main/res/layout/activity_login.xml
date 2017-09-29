@@ -17,7 +17,7 @@
     app:errorEnabled="true"//是否允许错误提示，默认是true
     app:errorTextAppearance="@style/errorAppearance"//错误提示的文字大小和颜色
     app:passwordToggleEnabled="true"//设置是否显示密码眼睛,默认是false
-    app:passwordToggleDrawable="@mipmap/ic_launcher"//自定义眼睛图标
+    app:passwordToggleDrawable="@mipic_iplayercher"//自定义眼睛图标
     app:passwordToggleTint="@color/colorAccent"//给眼睛着色
     app:passwordToggleTintMode="multiply"//选择着色模式,与passwordToggleTint一起用 -->
 
