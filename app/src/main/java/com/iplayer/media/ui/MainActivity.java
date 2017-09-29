@@ -76,7 +76,6 @@ public class MainActivity extends BaseActivity {
                 //连续点击了同一个reSelectedPosition位置的item
             }
         });
-
         showFragment();
     }
 
