@@ -5,7 +5,7 @@
     <item
         android:icon="@drawable/main_ic_home_select"
         icon2="@drawable/main_ic_home"
-        shiftedColor="#258555"
+        shiftedColor="@color/common_green"
         android:title="@string/common_home"></item>
     <item
         android:icon="@drawable/main_ic_find_select"

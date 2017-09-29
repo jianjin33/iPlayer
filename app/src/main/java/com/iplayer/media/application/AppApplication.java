@@ -10,7 +10,7 @@ import com.iplayer.componentlib.router.Router;
  * 主工程Application
  */
 
-@Components({"module_main"})
+@Components({"module_main","module_mine"})
 public class AppApplication extends BaseApplication {
 
     @Override
@@ -18,5 +18,6 @@ public class AppApplication extends BaseApplication {
         super.onCreate();
         ARouterHelper.install();
         Router.registerComponent("com.iplayer.main.applike.MainAppLike");
+        Router.registerComponent("com.iplayer.mine.applike.MineAppLike");
     }
 }

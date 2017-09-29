@@ -1,5 +1,6 @@
 // apply plugin: 'com.android.application'
 apply plugin: 'com.dd.comgradle'
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 26
@@ -36,6 +37,9 @@ android {
 dependencies {
     compile project(':component_service')
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
 }
 
 combuild {

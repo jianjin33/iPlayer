@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.auto.service.AutoService;
+import com.iplayer.annotation.router.AutoRouter;
 import com.iplayer.basiclib.base.BaseActivity;
 import com.iplayer.basiclib.util.BitmapDecodeUtils;
 import com.iplayer.basiclib.util.StringUtils;
@@ -25,12 +27,12 @@ import com.iplayer.mine.R2;
 import com.iplayer.mine.presenter.ILogin;
 import com.iplayer.mine.presenter.impl.LoginPresenter;
 
-import java.io.ByteArrayOutputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+@AutoRouter()
 public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
 
     @BindView(R2.id.mine_tv_account)
@@ -65,10 +67,10 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
         mineLogin.setBackground(new BitmapDrawable(bitmap));
     }
 
-    @OnClick({R.id.mine_bt_login, R.id.mine_bt_forget_pwd, R.id.mine_bt_register})
+    @OnClick({R2.id.mine_bt_login, R2.id.mine_bt_forget_pwd, R2.id.mine_bt_register})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.mine_bt_login:
+            case R2.id.mine_bt_login:
                 final String account = mineTvAccount.getText().toString().trim();
                 final String pwd = mineTvPwd.getText().toString().trim();
                 if (StringUtils.isSpace(account)
@@ -89,9 +91,9 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
                         });
 
                 break;
-            case R.id.mine_bt_forget_pwd:
+            case R2.id.mine_bt_forget_pwd:
                 break;
-            case R.id.mine_bt_register:
+            case R2.id.mine_bt_register:
                 break;
         }
     }

@@ -17,8 +17,8 @@
         android:id="@+id/bar"
         app:switchMode="shift"
         app:menu="@menu/home_menu"
-        app:selectedColor="#ffffff"
-        app:unSelectedColor="#bbbbbb"
+        app:selectedColor="@color/common_white"
+        app:unSelectedColor="@color/common_gray"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_45">
     </com.wakehao.bar.BottomNavigationBar>
