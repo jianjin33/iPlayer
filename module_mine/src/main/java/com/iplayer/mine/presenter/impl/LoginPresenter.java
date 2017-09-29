@@ -1,6 +1,10 @@
 package com.iplayer.mine.presenter.impl;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.view.Display;
 
 import com.iplayer.basiclib.base.BasePresenter;
 import com.iplayer.basiclib.core.Constants;
@@ -11,6 +15,7 @@ import com.iplayer.basiclib.util.StringUtils;
 import com.iplayer.mine.api.MineResponse;
 import com.iplayer.mine.model.LoginModel;
 import com.iplayer.mine.presenter.ILogin;
+import com.iplayer.mine.util.NativeHelper;
 
 /**
  * Created by Administrator on 2017/9/26.
@@ -54,4 +59,6 @@ public class LoginPresenter extends BasePresenter implements ILogin.ILoginPresen
         loginModel.login(httpSubscriber, account, pwd);
 
     }
+
+
 }

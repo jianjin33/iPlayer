@@ -4,6 +4,8 @@ package com.iplayer.basiclib.util;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.view.Display;
 
 /**
  * Created by Administrator on 2017/9/26.

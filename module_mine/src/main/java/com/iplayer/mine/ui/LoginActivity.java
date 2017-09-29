@@ -1,14 +1,17 @@
 package com.iplayer.mine.ui;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputEditText;
+import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -26,6 +29,8 @@ import com.iplayer.mine.R;
 import com.iplayer.mine.R2;
 import com.iplayer.mine.presenter.ILogin;
 import com.iplayer.mine.presenter.impl.LoginPresenter;
+import com.iplayer.mine.util.BlurUtil;
+import com.iplayer.mine.util.NativeHelper;
 
 
 import butterknife.BindView;
@@ -46,6 +51,7 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
     @BindView(R2.id.mine_login_progress)
     ProgressBar mProgressBar;
     private ILogin.ILoginPresenter presenter;
+    private Bitmap bitmap;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -61,9 +67,9 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
             // 透明导航栏
             // getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
+        bitmap = BitmapDecodeUtils.decodeBitmapFromResource(getResources(), R.mipmap.mine_login_bg,
+                UIUtils.getScreenWidth(), UIUtils.getScreenHeight());
 
-        Bitmap bitmap = BitmapDecodeUtils.decodeBitmapFromResource(getResources(),R.mipmap.mine_login_bg,
-                UIUtils.getScreenWidth(),UIUtils.getScreenHeight());
         mineLogin.setBackground(new BitmapDrawable(bitmap));
     }
 
@@ -86,12 +92,29 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
                             @Override
                             public void onAnimationEnd() {
                                 mProgressBar.setVisibility(View.VISIBLE);
-                                presenter.login(account,pwd);
+                                presenter.login(account, pwd);
                             }
                         });
 
                 break;
             case R2.id.mine_bt_forget_pwd:
+                Thread thread = new Thread() {
+                    @Override
+                    public void run() {
+                        super.run();
+                        final Bitmap ret = BlurUtil.blurNatively(scaleBitmap(getScreenBitmap()), 20, true);
+                        runOnUiThread(new Runnable() {
+                            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+                            @Override
+                            public void run() {
+                                mineLogin.setBackground(new BitmapDrawable(ret));
+                            }
+                        });
+                    }
+                };
+                thread.start();
+
+
                 break;
             case R2.id.mine_bt_register:
                 break;
@@ -118,4 +141,49 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
     public void finishAct() {
         activityManagerUtils.finishActivity(this);
     }
+
+
+    /**
+     * 截屏
+     */
+    private Bitmap getScreenBitmap() {
+        View viewRoot = getWindow().getDecorView().getRootView();
+        viewRoot.setDrawingCacheEnabled(true);
+        Bitmap screenShotAsBitmap = Bitmap.createBitmap(viewRoot.getDrawingCache());
+        viewRoot.setDrawingCacheEnabled(false);
+        return screenShotAsBitmap;
+    }
+
+
+    /**
+     * 缩放bitmap
+     *
+     * @param bitmap
+     * @return
+     */
+    private Bitmap scaleBitmap(Bitmap bitmap) {
+        // 获得图片的宽高
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        // 设置想要的大小
+        /*Display display = ((Activity)mContext).getWindowManager().getDefaultDisplay();
+        int newWidth = display.getWidth();
+        int newHeight = display.getHeight();
+        // 计算缩放比例
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        */
+        // 取得想要缩放的matrix参数
+        Matrix matrix = new Matrix();
+//        matrix.postScale(scaleWidth, scaleHeight);
+        // 实现模糊效果之前，这里可对bitmap进行更大缩放，减少像素点还可提高性能
+        float scaleFactor = 10;
+        float scale = 1f / scaleFactor;
+        matrix.postScale(scale, scale);
+        // 得到新的图片
+        Bitmap newbm = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+        bitmap.recycle();
+        return newbm;
+    }
+
 }
