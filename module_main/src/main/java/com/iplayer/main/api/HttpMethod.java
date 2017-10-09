@@ -3,6 +3,10 @@ package com.iplayer.main.api;
 
 import com.iplayer.basiclib.http.HttpClient;
 import com.iplayer.basiclib.http.HttpResultFunc;
+import com.iplayer.basiclib.http.Response;
+import com.iplayer.main.model.HomeVideoList;
+
+import java.util.List;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -37,6 +41,15 @@ public class HttpMethod {
         Observable observable = service.queryAppVersion()
                 .map(new HttpResultFunc());
 
+        toSubscribe(observable, subscriber);
+    }
+
+    /**
+     * 首页列表数据
+     */
+    public void queryHomeList(Subscriber subscriber,String version) {
+        Observable<List<HomeVideoList>> observable = service.queryHomeList(version)
+                .map(new HttpResultFunc<List<HomeVideoList>>());
         toSubscribe(observable, subscriber);
     }
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_40">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/common_gray"/>
+
+    <TextView
+        android:id="@+id/item_video_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/sp_15"
+        android:padding="@dimen/dp_5"
+        android:layout_alignParentBottom="true"/>
+
+
+    <TextView
+        android:id="@+id/item_video_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="更多>>"
+        android:textColor="@color/common_text_gray"
+        android:padding="@dimen/dp_5"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

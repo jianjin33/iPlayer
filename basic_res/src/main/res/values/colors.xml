@@ -6,6 +6,7 @@
     <color name="common_colorAccentDark">#E92064</color>
     <color name="common_title_bg">#181818</color>
     <color name="common_gray" >#DDDDDD</color>
+    <color name="common_text_gray" >#737373</color>
     <color name="common_blue_light" >#2196F3</color>
     <color name="common_blue_lightDark" >#0069d3</color>
     <color name="common_white" >#FFFFFF</color>

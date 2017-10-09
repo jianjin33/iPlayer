@@ -52,16 +52,27 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_45"
-                    android:background="@color/common_white"></RelativeLayout>
+                    android:background="@color/common_white">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="搜索"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/common_green"
+                        android:lines="1"/>
+
+                </RelativeLayout>
             </LinearLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <com.iplayer.basiclib.view.BaseRecycleView
         android:id="@+id/main_rv_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_5"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * https://github.com/alicx/LoadMoreRecyclerView的基础上进行修改
+ * https://github.com/alicx/LoadMoreRecyclerView的基础上进行修改，感谢原作者
  * 支持添加多个头部和尾部view，以及网格，瀑布流中全宽度view，支持列表，网格，瀑布流等布局
  */
 public class BaseRecycleView extends RecyclerView {
@@ -48,7 +48,7 @@ public class BaseRecycleView extends RecyclerView {
 
     private List<View> mHeaderList = new ArrayList<>();//头部views
     private List<View> mFooterList = new ArrayList<>();//尾部views
-    private List<Integer> mSpecialPositions = new ArrayList<>();//特殊view的positions
+    private List<Integer> mSpecialPositins = new ArrayList<>();//特殊view的positions
 
     private LinearLayout headerLayout;//尾部view
     private LinearLayout footerLayout;//头部view
@@ -132,7 +132,7 @@ public class BaseRecycleView extends RecyclerView {
      * 设置特殊item positions
      */
     public void setSpecialItem(List<Integer> specialItems) {
-        this.mSpecialPositions = specialItems;
+        this.mSpecialPositins = specialItems;
     }
 
     /**
@@ -154,7 +154,7 @@ public class BaseRecycleView extends RecyclerView {
     /**
      * 判断是否头部view
      */
-    public boolean isHeaderPostion(int position) {
+    public boolean isHeaderPosition(int position) {
         if (position < mHeaderCount)
             return true;
         return false;
@@ -173,7 +173,7 @@ public class BaseRecycleView extends RecyclerView {
      * 判断是否特殊item
      */
     public boolean isSpecialItem(int position) {
-        for (int p : mSpecialPositions) {
+        for (int p : mSpecialPositins) {
             if (p == position)
                 return true;
         }
@@ -364,7 +364,7 @@ public class BaseRecycleView extends RecyclerView {
 
         @Override
         public int getSpanSize(int position) {
-            return (isHeaderPostion(position) || isFooterPosition(position) || isSpecialItem(position - mHeaderCount)) ? mSpanSize : 1;
+            return (isHeaderPosition(position) || isFooterPosition(position) || isSpecialItem(position - mHeaderCount)) ? mSpanSize : 1;
         }
     }
 
