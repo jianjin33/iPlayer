@@ -73,7 +73,8 @@ public class ExampleInstrumentedTest {
 //        playNetVideo("rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov");
 //        playNetVideo("http://forum.ea3w.com/coll_ea3w/attach/2008_10/12237832415.3gp");
 //        playNetVideo("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
-        playNetVideo("http://olq04epn4.bkt.clouddn.com/RxAndroid%E5%BC%80%E5%8F%91%E8%AE%B2%E8%A7%A3%E7%AC%AC%E4%BA%8C%E9%9B%86.mp4");
+        playNetVideo("mms://live.cctv.com/livenews");
+//        playNetVideo("http://olq04epn4.bkt.clouddn.com/RxAndroid%E5%BC%80%E5%8F%91%E8%AE%B2%E8%A7%A3%E7%AC%AC%E4%BA%8C%E9%9B%86.mp4");
 //        playNetVideo("http://mov.bn.netease.com/open-movie/nos/flv/2016/03/10/SBGSB5P41_sd.flv");
     }
 
@@ -111,7 +112,6 @@ public class ExampleInstrumentedTest {
     private void playNetVideo1(String url){
         Intent intent = new Intent(Intent.ACTION_VIEW);
         String type = "video/*";
-//        Uri uri = Uri.parse("http://forum.ea3w.com/coll_ea3w/attach/2008_10/12237832415.3gp");
         Uri uri = Uri.parse(url);
         intent.setDataAndType(uri, type);
 //        startActivity(intent);

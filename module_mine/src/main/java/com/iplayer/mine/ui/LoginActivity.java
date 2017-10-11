@@ -3,22 +3,21 @@ package com.iplayer.mine.ui;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputEditText;
-import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.auto.service.AutoService;
 import com.iplayer.annotation.router.AutoRouter;
 import com.iplayer.basiclib.base.BaseActivity;
 import com.iplayer.basiclib.util.BitmapDecodeUtils;
@@ -30,7 +29,6 @@ import com.iplayer.mine.R2;
 import com.iplayer.mine.presenter.ILogin;
 import com.iplayer.mine.presenter.impl.LoginPresenter;
 import com.iplayer.mine.util.BlurUtil;
-import com.iplayer.mine.util.NativeHelper;
 
 
 import butterknife.BindView;
@@ -114,11 +112,21 @@ public class LoginActivity extends BaseActivity implements ILogin.ILoginView {
                 };
                 thread.start();
 
-
+//                playNetVideo("http://olq04epn4.bkt.clouddn.com/RxAndroid%E5%BC%80%E5%8F%91%E8%AE%B2%E8%A7%A3%E7%AC%AC%E4%BA%8C%E9%9B%86.mp4");
+                startActivity(new Intent(this,AudioRecorderActivity.class));
                 break;
             case R2.id.mine_bt_register:
+                playNetVideo("rtmp://live.hkstv.hk.lxdns.com/live/hks");
                 break;
         }
+    }
+
+    private void playNetVideo(String url){
+        String extension = MimeTypeMap.getFileExtensionFromUrl(url);
+        String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+        Intent mediaIntent = new Intent(Intent.ACTION_VIEW);
+        mediaIntent.setDataAndType(Uri.parse(url), mimeType);
+        startActivity(mediaIntent);
     }
 
     @Override

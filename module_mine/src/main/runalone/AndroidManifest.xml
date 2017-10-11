@@ -4,7 +4,7 @@
     package="com.iplayer.mine">
 
     <application
-        android:name="com.iplayer.mine.MineApplication"
+        android:name=".MineApplication"
         android:allowBackup="true"
         android:label="@string/mine_app_name"
         android:supportsRtl="true"
@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".ui.AudioRecorderActivity"></activity>
     </application>
 
 </manifest>

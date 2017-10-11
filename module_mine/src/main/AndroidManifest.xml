@@ -8,5 +8,6 @@
         android:supportsRtl="true">
 
         <activity android:name=".ui.LoginActivity"></activity>
+        <activity android:name=".ui.AudioRecorderActivity"></activity>
     </application>
 </manifest>
