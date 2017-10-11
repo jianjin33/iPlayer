@@ -15,6 +15,7 @@ extern "C" {
 JNIEXPORT void JNICALL Java_com_iplayer_mine_util_NativeHelper_blurBitmap
   (JNIEnv *, jclass, jobject, jint);
 
+
 #ifdef __cplusplus
 }
 #endif
