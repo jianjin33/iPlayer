@@ -9,6 +9,7 @@
         android:label="@string/mine_app_name"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme"
+        android:hardwareAccelerated="false"
         tools:replace="android:label">
         <activity android:name=".ui.LoginActivity">
             <intent-filter>

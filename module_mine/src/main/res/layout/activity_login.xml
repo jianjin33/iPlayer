@@ -21,6 +21,17 @@
     app:passwordToggleTint="@color/colorAccent"//给眼睛着色
     app:passwordToggleTintMode="multiply"//选择着色模式,与passwordToggleTint一起用 -->
 
+    <com.iplayer.mine.PlayButton
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_200"
+        android:background="@color/common_gray"
+        android:layout_marginTop="81dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="112dp"
+        android:id="@+id/playButton" />
+
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/mine_til_account"
         android:layout_width="match_parent"
